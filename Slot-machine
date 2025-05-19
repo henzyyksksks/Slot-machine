@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎰 Слот Машина</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #222;
+      color: white;
+    }
+    .slot {
+      font-size: 60px;
+      margin: 20px;
+    }
+    button {
+      font-size: 20px;
+      padding: 10px 30px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎰 Слот Машина</h1>
+  <p>💰 Баланс: <span id="balance">1000</span> монет</p>
+  <div class="slot" id="reels">🍒 🍋 🍊</div>
+  <button onclick="spin()">Крутить (100 монет)</button>
+  <p id="result"></p>
+
+  <script>
+    let balance = 1000;
+    const symbols = ['🍒', '🍋', '🍊', '🍇', '💎', '🔔'];
+    
+    function spin() {
+      if (balance < 100) {
+        document.getElementById("result").innerText = "❌ Недостаточно монет!";
+        return;
+      }
+      balance -= 100;
